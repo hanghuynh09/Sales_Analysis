@@ -24,7 +24,7 @@ Number of rows in dataset
 SELECT COUNT(*) AS total_rows
 FROM sales_data;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\total_rows_1.png" alt="Getting started" width="100" />
+<img src="./Code Snapshot/total_rows_1.png" alt="Getting started" width="100" />
 
 Retailer  
 ```sql
@@ -32,7 +32,7 @@ SELECT
 	DISTINCT retailer
 FROM sales_data;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\retailer.png" alt="Getting started" width="100" />
+<img src="./Code Snapshot/retailer.png" alt="Getting started" width="100" />
 
 Sales Method
 ```sql
@@ -40,7 +40,7 @@ SELECT sales_method, COUNT(*) AS no_of_sales_method
 FROM sales_data
 GROUP BY sales_method;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\Sales Method.png" alt="Getting started" width="100" />
+<img src="./Code Snapshot/Sales Method.png" alt="Getting started" width="100" />
 
 Product
 ```sql
@@ -48,7 +48,7 @@ SELECT product, COUNT(*) AS no_of_product
 FROM sales_data
 GROUP BY product;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\Product.png" alt="Getting started" width="160" />
+<img src="./Code Snapshot/Product.png" alt="Getting started" width="160" />
 
 Number of blank and null rows
 
@@ -79,7 +79,7 @@ SELECT "blank_null_operating_margin" , COUNT(*) FROM sales_data WHERE sales_data
 UNION ALL
 SELECT "blank_null_sales_method" , COUNT(*) FROM sales_data WHERE sales_data.sales_method IS NULL OR sales_data.operating_margin = '';
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\blank_null.png" width="220" />
+<img src="./Code Snapshot/blank_null.png" width="220" />
 
 Number of Duplicated Rows
 ```sql
@@ -102,7 +102,7 @@ GROUP BY
 	sales_method
 HAVING COUNT(*) = 0; 
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\duplicate_rows.png" width="130" />
+<img src="./Code Snapshot/duplicate_rows.png" width="130" />
 
 * DATA CLEANING
 ```sql
@@ -134,7 +134,7 @@ SELECT
     COUNT(*) AS total_rows
 FROM sales_data_1;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\total_rows_a.png" width="100" />
+<img src="./Code Snapshot/total_rows_a.png" width="100" />
 
 * DATA ANALYSIS
 
@@ -146,7 +146,7 @@ SELECT
 FROM sales_data_1
 GROUP BY year;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\year_sales_2.png" width="150" />
+<img src="./Code Snapshot/year_sales_2.png" width="150" />
 
 Total Sales by Year and Retailer
 ```sql
@@ -158,7 +158,7 @@ FROM
 	sales_data_1
 GROUP BY retailer;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\sales_year_retailer.png" width="220" />
+<img src="./Code Snapshot/sales_year_retailer.png" width="220" />
 
 Top5 Product Over Year
 ```sql
@@ -188,8 +188,8 @@ GROUP BY product, Year
 ORDER BY sum_of_sales DESC
 LIMIT 5;
 ```
- <img src="D:\Project\Adidas Sales\Code Snapshot\top5_1.png" width="240" />
- <img src="D:\Project\Adidas Sales\Code Snapshot\top5_2.png" width="240" />
+ <img src="./Code Snapshot/top5_1.png" width="240" />
+ <img src="./Code Snapshot/top5_2.png" width="240" />
 
 The Top Region, State, City for Sales
 ```sql
@@ -233,9 +233,9 @@ CALL top_sales_by_area_and_year('city', 2020, 2021);
 CALL top_sales_by_area_and_year('state', 2020, 2021);
 CALL top_sales_by_area_and_year('region', 2020, 2021);
 ```
- <img src="D:\Project\Adidas Sales\Code Snapshot\city.png" width="180" />
- <img src="D:\Project\Adidas Sales\Code Snapshot\state.png" width="170" />
-  <img src="D:\Project\Adidas Sales\Code Snapshot\region.png" width="160" />
+ <img src="./Code Snapshot/city.png" width="180" />
+ <img src="./Code Snapshot/state.png" width="170" />
+  <img src="./Code Snapshot/region.png" width="160" />
 
 Sales Methods are the Top 3 for Sales
 ```sql
@@ -246,7 +246,7 @@ SELECT
 FROM sales_data_1
 GROUP BY sales_method;
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\method_over_year.png" width="210" /> 
+<img src="./Code Snapshot/method_over_year.png" width="210" /> 
 
 Profit Margin for different Product Categories
 
@@ -275,7 +275,7 @@ FROM
       ) AS category
 GROUP BY  product_by_ca;     
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\profit_ca_ge.png" width="460" />
+<img src="./Code Snapshot/profit_ca_ge.png" width="460" />
 
 Units Sold in terms of Seasonality
 ```sql
@@ -291,7 +291,7 @@ GROUP BY
     year, sales_method
 ORDER BY year;    
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\seasonality.png" width="290" />
+<img src="./Code Snapshot/seasonality.png" width="290" />
 
 Retailers have the Most Sales per State
 ```sql
@@ -320,7 +320,7 @@ SELECT
 FROM ranked_retailer
 WHERE rank_sales = 1;  
 ```
-<img src="D:\Project\Adidas Sales\Code Snapshot\state_1.png" width="200" />
-<img src="D:\Project\Adidas Sales\Code Snapshot\state_2.png" width="200" />
-<img src="D:\Project\Adidas Sales\Code Snapshot\state_3.png" width="200" />
-<img src="D:\Project\Adidas Sales\Code Snapshot\state_4.png" width="200" />
+<img src="./Code Snapshot/state_1.png" width="200" />
+<img src="./Code Snapshot/state_2.png" width="200" />
+<img src="./Code Snapshot/state_3.png" width="200" />
+<img src="./Code Snapshot/state_4.png" width="200" />
