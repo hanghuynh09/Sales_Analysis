@@ -365,6 +365,6 @@ WHERE rank_sales = 1;
 *Margin Fluctuations*: The average operating margin shows fluctuations across quarters. Notably, there were significant increases in Q3 2020 and Q4 2021, which may correlate with strategic initiatives or market conditions favoring Adidas during these periods.
 
 
-**Total Sales by State**
+- **Total Sales by State**
 
 *Geographical Distribution*: The analysis results indicates varied sales performance across states, with some states exhibiting higher total sales(New York in 2020 and California in 2021). This can inform regional marketing and inventory strategies to optimize sales performance.
