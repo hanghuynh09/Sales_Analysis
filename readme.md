@@ -1,4 +1,6 @@
+### SALES ANALYSIS
 ```sql
+
 CREATE DATABASE adidas_sales;
 
 CREATE TABLE sales_data (
@@ -17,7 +19,7 @@ CREATE TABLE sales_data (
     sales_method VARCHAR(225)
 );
 ```
-* DATA OBSERVATION
+ ##### DATA OBSERVATION
 
 Number of rows in dataset
 ```sql
@@ -26,7 +28,7 @@ FROM sales_data;
 ```
 <img src="./Code Snapshot/total_rows_1.png" alt="Getting started" width="100" />
 
-Retailer  
+Number of Retailers  
 ```sql
 SELECT 
 	DISTINCT retailer
@@ -34,7 +36,7 @@ FROM sales_data;
 ```
 <img src="./Code Snapshot/retailer.png" alt="Getting started" width="100" />
 
-Sales Method
+Number of Sales Method
 ```sql
 SELECT sales_method, COUNT(*) AS no_of_sales_method
 FROM sales_data
@@ -42,7 +44,7 @@ GROUP BY sales_method;
 ```
 <img src="./Code Snapshot/Sales Method.png" alt="Getting started" width="100" />
 
-Product
+Number of Product
 ```sql
 SELECT product, COUNT(*) AS no_of_product
 FROM sales_data
@@ -104,7 +106,7 @@ HAVING COUNT(*) = 0;
 ```
 <img src="./Code Snapshot/duplicate_rows.png" width="130" />
 
-* DATA CLEANING
+##### DATA CLEANING
 ```sql
 -- creating a backup table
 CREATE TABLE sales_data_1 AS
@@ -128,7 +130,7 @@ UPDATE sales_data_1
 SET operating_margin = REPLACE(operating_margin, "%","");
 
 ```
-Rows Total After Cleaning
+Total Rows After Cleaning
 ```sql
 SELECT 
     COUNT(*) AS total_rows
@@ -136,9 +138,9 @@ FROM sales_data_1;
 ```
 <img src="./Code Snapshot/total_rows_a.png" width="100" />
 
-* DATA ANALYSIS
+#### DATA ANALYSIS
 
-Total Sales by Each Year
+*Total Sales by Each Year:*
 ```sql
 SELECT 
     YEAR(invoice_date) AS year, 
@@ -148,7 +150,8 @@ GROUP BY year;
 ```
 <img src="./Code Snapshot/year_sales_2.png" width="150" />
 
-Total Sales by Year and Retailer
+
+*Total Sales by Years and Retailers :*
 ```sql
 SELECT 
     retailer,
@@ -160,7 +163,7 @@ GROUP BY retailer;
 ```
 <img src="./Code Snapshot/sales_year_retailer.png" width="220" />
 
-Top5 Product Over Year
+*Top 5 Product by Year*
 ```sql
 --2020
 SELECT 
@@ -191,7 +194,7 @@ LIMIT 5;
  <img src="./Code Snapshot/top5_1.png" width="240" />
  <img src="./Code Snapshot/top5_2.png" width="240" />
 
-The Top Region, State, City for Sales
+*The Top Region, State, City for Sales:*
 ```sql
 DELIMITER //
 
@@ -237,7 +240,7 @@ CALL top_sales_by_area_and_year('region', 2020, 2021);
  <img src="./Code Snapshot/state.png" width="170" />
   <img src="./Code Snapshot/region.png" width="160" />
 
-Sales Methods are the Top 3 for Sales
+*Sales Methods are the Top 3 for Sales:*
 ```sql
 SELECT 
 	sales_method,
@@ -248,7 +251,7 @@ GROUP BY sales_method;
 ```
 <img src="./Code Snapshot/method_over_year.png" width="210" /> 
 
-Profit Margin for different Product Categories
+*Profit Margin for different Product Categories:*
 
 ```sql
 -- profit margin over year by product caterories(apparel/footwear), gender(men/women)
@@ -277,7 +280,7 @@ GROUP BY  product_by_ca;
 ```
 <img src="./Code Snapshot/profit_ca_ge.png" width="460" />
 
-Units Sold in terms of Seasonality
+*Units Sold in terms of Seasonality:*
 ```sql
 SELECT
     YEAR(invoice_date) AS year,
@@ -293,7 +296,7 @@ ORDER BY year;
 ```
 <img src="./Code Snapshot/seasonality.png" width="290" />
 
-Retailers have the Most Sales per State
+*Retailers have the Most Sales per State:*
 ```sql
 WITH retailer_sales AS 
 	(
@@ -324,3 +327,22 @@ WHERE rank_sales = 1;
 <img src="./Code Snapshot/state_2.png" width="200" />
 <img src="./Code Snapshot/state_3.png" width="200" />
 <img src="./Code Snapshot/state_4.png" width="200" />
+
+#### Key insights derived from Adidas Sale analysis:
+
+**Sales Performance Over Time**
+ There is a significant increase in sales from 2020 to 2021. Sales revenue grew from 182.08M in 2020 to 717.82M in 2021, indicating robust growth.
+**Sales by Region**
+*Top Regions*: The Northeast region leads in sales with 50M  , followed by the West with  35M  , and the Southeast with $29M. This highlights the Northeast as a critical market for Adidas.
+**Units Sold by Product Category**
+*Product Demand*: Footwear is the most popular product category, with 0.85M units sold in 2021 compared to 0.18M in 2020. Apparel sales also saw an increase, though less pronounced, from 0.06M in 2020 to 0.35M in 2021.
+*Gender Distribution*: The sales of men's footwear significantly outpace those of women's footwear in 2021, suggesting a higher demand among male consumers.
+**Sales Channels**
+*Retailer Performance*: Among retailers, West Gear and Foot Locker were strong performers in 2021, with West Gear showing prominent sales in both 2020 and 2021. Foot Locker's 2021 performance also stands out.
+*Sales Method*: Across different retailers, in-store sales remain dominant, though online and outlet sales also contribute significantly. This indicates a diverse sales strategy balancing brick-and-mortar and e-commerce channels.
+**Seasonal Sales Trends**
+*Seasonal Variations*: Sales methods vary by season, with online sales peaking in autumn and winter, while in-store and outlet sales have a steadier distribution throughout the year. This points to seasonal preferences in shopping behavior.
+**Operating Margin**
+*Margin Fluctuations*: The average operating margin shows fluctuations across quarters. Notably, there were significant increases in Q3 2020 and Q4 2021, which may correlate with strategic initiatives or market conditions favoring Adidas during these periods.
+**Total Sales by State**
+Geographical Distribution: The analysis results indicates varied sales performance across states, with some states exhibiting higher total sales(New York in 2020 and California in 2021). This can inform regional marketing and inventory strategies to optimize sales performance.
